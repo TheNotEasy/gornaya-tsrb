@@ -1,14 +1,22 @@
 "use client";
 
 import Timeline from "@/src/components/timeline";
-import { useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
 
 import events from "./events.json";
 import Markdown from "react-markdown";
 import { useSearchParams, useRouter } from "next/navigation";
 import useInterval from "@/src/hooks/useInterval";
 
-export default function TimelinePage() {
+export default function TimelinePageWrapper() {
+  return (
+    <Suspense fallback={"Загрузка..."}>
+      <TimelinePage />
+    </Suspense>
+  );
+}
+
+function TimelinePage() {
   const params = useSearchParams();
   const router = useRouter();
   const [billboardMode, setBillboardMode] = useState(
