@@ -2,12 +2,12 @@
   {
     "title": "1926 год",
     "description": "Начало строительства больницы в с. Бердигестях Западно-Хангаласского района (по архивным документам)",
-    "image": "/документы.png",
+    "image": "/documents.png",
     "alt": "Архивные документы"
   },
   {
     "title": "10 октябрь, 1931 год",
-    "image": "https://edkgbpquadosqfibilqw.supabase.co/storage/v1/object/public/images/hospital1931.png",
+    "image": "/hospital1931.png",
     "alt": "Горная ЦРБ 1931 года",
     "description": "Уже во вновь организованном Горном районе открыта больница"
   },
@@ -38,7 +38,7 @@
   {
     "title": "2003 год",
     "description": "Введен в строй современный Больничный комплекс",
-    "image": "/больница 2003.png",
+    "image": "/hospital2003.png",
     "alt": "Горная ЦРБ 2003 года"
   },
   {
