@@ -2,9 +2,12 @@
 
 import { prisma } from "@/src/crud/prisma";
 import s3 from "@/src/crud/s3";
+import { cookies } from "next/headers";
 import { v4 as uuid } from "uuid"
 
 export async function processBuy(data: FormData) {
+  const cookiesStore = await cookies();
+
   const attachment = data.get("attachment");
   console.log(attachment);
   if (!attachment || !(attachment instanceof File)) {
@@ -13,7 +16,7 @@ export async function processBuy(data: FormData) {
 
   const key = `${uuid()}-${attachment.name}`;
 
-  await prisma.paymentRequest.create({
+  const request = await prisma.paymentRequest.create({
     data: {
       attachment: key
     }
@@ -25,4 +28,6 @@ export async function processBuy(data: FormData) {
     Body: new Uint8Array(await attachment.arrayBuffer()),
     ContentType: attachment.type,
   });
+
+  cookiesStore.set("id", request.id.toString());
 }

@@ -3,7 +3,8 @@
 import Link from "next/link";
 import processMark from "./process";
 
-export function Request(value: any) {
+export function Request({ value }: any) {
+  console.log(value);
   return (
     <div className="flex flex-col mx-auto gap-2">
       <p>{value.id}</p>
