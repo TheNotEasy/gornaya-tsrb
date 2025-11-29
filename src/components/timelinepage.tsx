@@ -10,6 +10,8 @@ import { useSearchParams, useRouter } from "next/navigation";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default function TimelinePageWrapper() {
   return (
     <Suspense fallback={"Загрузка..."}>
