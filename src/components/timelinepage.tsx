@@ -5,7 +5,7 @@ import useInterval from "@/src/hooks/useInterval";
 import events from "./events.json";
 
 import Markdown from "react-markdown";
-import { Suspense, useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -24,6 +24,8 @@ function TimelinePage() {
   const [billboardMode, setBillboardMode] = useState(
     !!params.get("billboardMode")
   );
+
+  const audiosRef = useRef<HTMLAudioElement>(null);
 
   const [stage, setStage] = useState(parseInt(params.get("stage") || "0") || 0);
 
@@ -86,19 +88,17 @@ function TimelinePage() {
                 <Markdown>{value.markdown}</Markdown>
               </div>
             )}
+
+            <audio
+              controls
+              src={value.audio}
+              className="w-full"
+              onEnded={() => stage != events.length - 1 && setStage(stage + 1)}
+              autoPlay={idx == stage}
+            ></audio>
           </div>
         ))}
       </Timeline>
-      {/* <div className="flex mx-auto">
-        <input
-          type="checkbox"
-          name="billboard"
-          onChange={(value) => setBillboardMode(value.target.checked)}
-          defaultChecked={billboardMode}
-          id="billboard"
-        />
-        <label htmlFor="billboard">Режим стенда</label>
-      </div> */}
     </div>
   );
 }
