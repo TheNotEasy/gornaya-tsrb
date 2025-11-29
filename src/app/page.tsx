@@ -5,7 +5,11 @@ import TimelinePageWrapper from "../components/timelinepage";
 import { listGalleryImages } from "../crud/galleryImages";
 import Gallery from "../components/gallery";
 
+import { unstable_noStore } from "next/cache";
+
 export default async function Home() {
+  unstable_noStore();
+
   const allImages = (await listGalleryImages()).map((value) => ({
     id: value,
     src: value,
