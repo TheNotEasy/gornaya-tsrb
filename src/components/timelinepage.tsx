@@ -25,7 +25,7 @@ function TimelinePage() {
     !!params.get("billboardMode")
   );
 
-  const audiosRef = useRef<HTMLAudioElement>(null);
+  const audiosRef = useRef<HTMLAudioElement[]>(new Array(events.length));
 
   const [stage, setStage] = useState(parseInt(params.get("stage") || "0") || 0);
 
@@ -94,7 +94,15 @@ function TimelinePage() {
               src={value.audio}
               className="w-full"
               onEnded={() => stage != events.length - 1 && setStage(stage + 1)}
-              autoPlay={idx == stage}
+              ref={(el) => {
+                if (!el) return;
+                if (idx === stage) {
+                  el.play();
+                } else {
+                  el.pause();
+                  el.currentTime = 0;
+                }
+              }}
             ></audio>
           </div>
         ))}
