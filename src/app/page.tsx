@@ -21,7 +21,7 @@ export default async function Home() {
 
       <div className="flex flex-col gap-10 container justify-center">
         <h1 className="text-3xl font-semibold mx-auto">Галерея</h1>
-        <Gallery imagesInfoArray={allImages} />
+        <Gallery imagesInfoArray={allImages} lazy />
       </div>
     </div>
   );

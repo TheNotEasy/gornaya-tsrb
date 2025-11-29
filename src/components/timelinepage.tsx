@@ -10,7 +10,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export default function TimelinePageWrapper() {
   return (
@@ -26,8 +26,6 @@ function TimelinePage() {
   const [billboardMode, setBillboardMode] = useState(
     !!params.get("billboardMode")
   );
-
-  const audiosRef = useRef<HTMLAudioElement[]>(new Array(events.length));
 
   const [stage, setStage] = useState(parseInt(params.get("stage") || "0") || 0);
 
