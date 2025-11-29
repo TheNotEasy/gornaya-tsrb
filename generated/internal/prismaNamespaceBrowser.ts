@@ -51,7 +51,9 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  GalleryImage: 'GalleryImage'
+  GalleryImage: 'GalleryImage',
+  PaymentRequest: 'PaymentRequest',
+  Admin: 'Admin'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -77,6 +79,22 @@ export const GalleryImageScalarFieldEnum = {
 } as const
 
 export type GalleryImageScalarFieldEnum = (typeof GalleryImageScalarFieldEnum)[keyof typeof GalleryImageScalarFieldEnum]
+
+
+export const PaymentRequestScalarFieldEnum = {
+  id: 'id',
+  attachment: 'attachment',
+  accepted: 'accepted'
+} as const
+
+export type PaymentRequestScalarFieldEnum = (typeof PaymentRequestScalarFieldEnum)[keyof typeof PaymentRequestScalarFieldEnum]
+
+
+export const AdminScalarFieldEnum = {
+  id: 'id'
+} as const
+
+export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
 
 
 export const SortOrder = {

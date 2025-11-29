@@ -27,28 +27,8 @@ function TimelinePage() {
     billboardMode
   );
 
-  // useEffect(() => {
-  //   const currentParams = new URLSearchParams(params.toString());
-  //   if (!billboardMode) {
-  //     currentParams.delete("billboardMode");
-  //   } else {
-  //     currentParams.set("billboardMode", "true");
-  //   }
-  //   router.replace(`?${currentParams.toString()}`, { scroll: false });
-  // }, [billboardMode]);
-
-  // useEffect(() => {
-  //   const currentParams = new URLSearchParams(params.toString());
-  //   currentParams.set("stage", stage.toString());
-  //   router.replace(`?${currentParams.toString()}`, { scroll: false });
-  // }, [stage]);
-
   return (
     <div className="flex flex-col gap-12">
-      {/* <div className="flex flex-col align-center justify-center px-12 pt-12">
-        <h1 className="text-center text-3xl">Таймлайн</h1>
-        {stage}
-      </div> */}
       {!billboardMode && (
         <div className="flex gap-5 mx-auto items-center">
           <button

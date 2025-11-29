@@ -384,7 +384,9 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  GalleryImage: 'GalleryImage'
+  GalleryImage: 'GalleryImage',
+  PaymentRequest: 'PaymentRequest',
+  Admin: 'Admin'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -400,7 +402,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "galleryImage"
+    modelProps: "galleryImage" | "paymentRequest" | "admin"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -478,6 +480,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    PaymentRequest: {
+      payload: Prisma.$PaymentRequestPayload<ExtArgs>
+      fields: Prisma.PaymentRequestFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PaymentRequestFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentRequestPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PaymentRequestFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentRequestPayload>
+        }
+        findFirst: {
+          args: Prisma.PaymentRequestFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentRequestPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PaymentRequestFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentRequestPayload>
+        }
+        findMany: {
+          args: Prisma.PaymentRequestFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentRequestPayload>[]
+        }
+        create: {
+          args: Prisma.PaymentRequestCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentRequestPayload>
+        }
+        createMany: {
+          args: Prisma.PaymentRequestCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PaymentRequestCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentRequestPayload>[]
+        }
+        delete: {
+          args: Prisma.PaymentRequestDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentRequestPayload>
+        }
+        update: {
+          args: Prisma.PaymentRequestUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentRequestPayload>
+        }
+        deleteMany: {
+          args: Prisma.PaymentRequestDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PaymentRequestUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PaymentRequestUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentRequestPayload>[]
+        }
+        upsert: {
+          args: Prisma.PaymentRequestUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentRequestPayload>
+        }
+        aggregate: {
+          args: Prisma.PaymentRequestAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePaymentRequest>
+        }
+        groupBy: {
+          args: Prisma.PaymentRequestGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PaymentRequestGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PaymentRequestCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PaymentRequestCountAggregateOutputType> | number
+        }
+      }
+    }
+    Admin: {
+      payload: Prisma.$AdminPayload<ExtArgs>
+      fields: Prisma.AdminFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AdminFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AdminFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>
+        }
+        findFirst: {
+          args: Prisma.AdminFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AdminFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>
+        }
+        findMany: {
+          args: Prisma.AdminFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>[]
+        }
+        create: {
+          args: Prisma.AdminCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>
+        }
+        createMany: {
+          args: Prisma.AdminCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AdminCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>[]
+        }
+        delete: {
+          args: Prisma.AdminDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>
+        }
+        update: {
+          args: Prisma.AdminUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>
+        }
+        deleteMany: {
+          args: Prisma.AdminDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AdminUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AdminUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>[]
+        }
+        upsert: {
+          args: Prisma.AdminUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminPayload>
+        }
+        aggregate: {
+          args: Prisma.AdminAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAdmin>
+        }
+        groupBy: {
+          args: Prisma.AdminGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AdminGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AdminCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AdminCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -524,6 +674,22 @@ export const GalleryImageScalarFieldEnum = {
 } as const
 
 export type GalleryImageScalarFieldEnum = (typeof GalleryImageScalarFieldEnum)[keyof typeof GalleryImageScalarFieldEnum]
+
+
+export const PaymentRequestScalarFieldEnum = {
+  id: 'id',
+  attachment: 'attachment',
+  accepted: 'accepted'
+} as const
+
+export type PaymentRequestScalarFieldEnum = (typeof PaymentRequestScalarFieldEnum)[keyof typeof PaymentRequestScalarFieldEnum]
+
+
+export const AdminScalarFieldEnum = {
+  id: 'id'
+} as const
+
+export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -573,6 +739,13 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'String[]'
  */
 export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -669,6 +842,8 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   galleryImage?: Prisma.GalleryImageOmit
+  paymentRequest?: Prisma.PaymentRequestOmit
+  admin?: Prisma.AdminOmit
 }
 
 /* Types for Logging */

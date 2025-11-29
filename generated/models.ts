@@ -9,4 +9,6 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/GalleryImage'
+export type * from './models/PaymentRequest'
+export type * from './models/Admin'
 export type * from './commonInputTypes'

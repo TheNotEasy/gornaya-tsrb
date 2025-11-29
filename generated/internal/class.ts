@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.0.1",
   "engineVersion": "f09f2815f091dbba658cdcd2264306d88bb5bda6",
   "activeProvider": "postgresql",
-  "inlineSchema": "datasource db {\n  provider = \"postgresql\"\n}\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../generated\"\n}\n\nmodel GalleryImage {\n  id      Int    @id @default(autoincrement())\n  url     String @unique\n  caption String\n}\n",
+  "inlineSchema": "datasource db {\n  provider = \"postgresql\"\n}\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../generated\"\n}\n\nmodel GalleryImage {\n  id      Int    @id @default(autoincrement())\n  url     String @unique\n  caption String\n}\n\nmodel PaymentRequest {\n  id         Int     @id @default(autoincrement())\n  attachment String  @unique\n  accepted   Boolean @default(false)\n}\n\nmodel Admin {\n  id Int @id @default(autoincrement())\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -28,7 +28,7 @@ const config: runtime.GetPrismaClientConfig = {
   }
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"GalleryImage\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"caption\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"GalleryImage\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"caption\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null},\"PaymentRequest\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"attachment\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"accepted\",\"kind\":\"scalar\",\"type\":\"Boolean\"}],\"dbName\":null},\"Admin\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
   const { Buffer } = await import('node:buffer')
@@ -183,6 +183,26 @@ export interface PrismaClient<
     * ```
     */
   get galleryImage(): Prisma.GalleryImageDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.paymentRequest`: Exposes CRUD operations for the **PaymentRequest** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PaymentRequests
+    * const paymentRequests = await prisma.paymentRequest.findMany()
+    * ```
+    */
+  get paymentRequest(): Prisma.PaymentRequestDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.admin`: Exposes CRUD operations for the **Admin** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Admins
+    * const admins = await prisma.admin.findMany()
+    * ```
+    */
+  get admin(): Prisma.AdminDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
 export function getPrismaClientClass(): PrismaClientConstructor {

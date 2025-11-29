@@ -8,16 +8,16 @@ import Gallery from "../components/gallery";
 import { unstable_noStore } from "next/cache";
 
 export default async function Home() {
-  unstable_noStore();
+  // unstable_noStore();
 
-  const allImages = (await listGalleryImages()).map((value) => ({
-    id: value,
-    src: value,
-    alt: value,
-  }));
+  // const allImages = (await listGalleryImages()).map((value) => ({
+  //   id: value,
+  //   src: value,
+  //   alt: value,
+  // }));
 
   return (
-    <div className="flex flex-col py-10">
+    <div className="flex flex-col pb-10">
       <div className="flex flex-col gap-10">
         <h1 className="text-3xl font-semibold mx-auto">Хронология</h1>
         <TimelinePageWrapper />
@@ -25,7 +25,7 @@ export default async function Home() {
 
       <div className="flex flex-col gap-10 container justify-center">
         <h1 className="text-3xl font-semibold mx-auto">Галерея</h1>
-        <Gallery imagesInfoArray={allImages} lazy />
+        {/* <Gallery imagesInfoArray={allImages} lazy /> */}
       </div>
     </div>
   );

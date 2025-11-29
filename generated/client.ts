@@ -44,3 +44,13 @@ export { Prisma }
  * 
  */
 export type GalleryImage = Prisma.GalleryImageModel
+/**
+ * Model PaymentRequest
+ * 
+ */
+export type PaymentRequest = Prisma.PaymentRequestModel
+/**
+ * Model Admin
+ * 
+ */
+export type Admin = Prisma.AdminModel

@@ -12,3 +12,13 @@ model GalleryImage {
     url String @unique
     caption String
 }
+
+model PaymentRequest {
+    id Int @id @default(autoincrement())
+    attachment String @unique
+    accepted Boolean @default(false)
+}
+
+model Admin {
+    id Int @id @default(autoincrement())
+}
