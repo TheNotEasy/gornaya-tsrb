@@ -9,11 +9,16 @@ export default async function BuyPage() {
   const cookiesStore = await cookies();
   const id = cookiesStore.get("id");
   if (id) {
-    const request = await prisma.paymentRequest.findFirst({
+    const request = await prisma.paymentRequest.findFirstOrThrow({
       where: {
         id: parseInt(id.value),
       },
     });
+    if (request.accepted) {
+      return <div>Ваша заявка прошла модерацию успешно!</div>;
+    } else {
+      return <div>Ваша заявка еще не прошла модерацию...</div>;
+    }
   }
 
   return (
