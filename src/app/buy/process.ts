@@ -22,5 +22,7 @@ export async function processBuy(data: FormData) {
   await s3.putObject({
     Bucket: "attachments",
     Key: key,
+    Body: new Uint8Array(await attachment.arrayBuffer()),
+    ContentType: attachment.type,
   });
 }
