@@ -92,8 +92,10 @@ function TimelinePage() {
             <audio
               controls
               src={value.audio}
-              className="w-full"
-              onEnded={() => stage != events.length - 1 && setStage(stage + 1)}
+              className="w-full px-4"
+              onEnded={() =>
+                stage != events.length - 1 && stage != 0 && setStage(stage + 1)
+              }
               ref={(el) => {
                 if (!el) return;
                 if (idx === stage) {
