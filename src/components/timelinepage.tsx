@@ -13,21 +13,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 // export const dynamic = "force-dynamic";
 
 export default function TimelinePageWrapper() {
-  return (
-    <Suspense fallback={"Загрузка..."}>
-      <TimelinePage />
-    </Suspense>
-  );
+  return <TimelinePage />;
 }
 
 function TimelinePage() {
-  const params = useSearchParams();
-  const router = useRouter();
-  const [billboardMode, setBillboardMode] = useState(
-    !!params.get("billboardMode")
-  );
+  const [billboardMode, setBillboardMode] = useState(false);
 
-  const [stage, setStage] = useState(parseInt(params.get("stage") || "0") || 0);
+  const [stage, setStage] = useState(0);
 
   useInterval(
     useCallback(() => setStage((stage + 1) % events.length), [stage, events]),
@@ -35,21 +27,21 @@ function TimelinePage() {
     billboardMode
   );
 
-  useEffect(() => {
-    const currentParams = new URLSearchParams(params.toString());
-    if (!billboardMode) {
-      currentParams.delete("billboardMode");
-    } else {
-      currentParams.set("billboardMode", "true");
-    }
-    router.replace(`?${currentParams.toString()}`, { scroll: false });
-  }, [billboardMode]);
+  // useEffect(() => {
+  //   const currentParams = new URLSearchParams(params.toString());
+  //   if (!billboardMode) {
+  //     currentParams.delete("billboardMode");
+  //   } else {
+  //     currentParams.set("billboardMode", "true");
+  //   }
+  //   router.replace(`?${currentParams.toString()}`, { scroll: false });
+  // }, [billboardMode]);
 
-  useEffect(() => {
-    const currentParams = new URLSearchParams(params.toString());
-    currentParams.set("stage", stage.toString());
-    router.replace(`?${currentParams.toString()}`, { scroll: false });
-  }, [stage]);
+  // useEffect(() => {
+  //   const currentParams = new URLSearchParams(params.toString());
+  //   currentParams.set("stage", stage.toString());
+  //   router.replace(`?${currentParams.toString()}`, { scroll: false });
+  // }, [stage]);
 
   return (
     <div className="flex flex-col gap-12">
